@@ -5,17 +5,18 @@ namespace GoodBurguer.GoodBurguer.Domain.Strategies
 {
     public class DescontoComboCompleto : IDescontoStrategy
     {
-        public bool EhAplicavel(IReadOnlyCollection<ItemPedido> itens)
+        public bool EhAplicavel(Pedido pedido)
         {
+            var itens = pedido.Itens;
+
             return Tem(TipoItem.Sanduiche, itens) &&
                    Tem(TipoItem.Bebida, itens) &&
                    Tem(TipoItem.Acompanhamento, itens);
         }
 
-        public decimal CalcularDesconto(IReadOnlyCollection<ItemPedido> itens)
+        public decimal CalcularDesconto(Pedido pedido)
         {
-            var total = itens.Sum(i => i.Preco);
-            return total * 0.20m;
+            return pedido.Itens.Sum(i => i.Preco) * 0.20m;
         }
 
         private bool Tem(TipoItem tipo, IReadOnlyCollection<ItemPedido> itens)
