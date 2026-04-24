@@ -16,9 +16,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="GoodBurguer.API\Middlewares\" />
-    <Folder Include="GoodBurguer.Domain\ValueObjects\" />
-  </ItemGroup>
-
 </Project>

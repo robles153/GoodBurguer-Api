@@ -12,17 +12,30 @@ namespace GoodBurguer.GoodBurguer.Infrastructure.Data.Configurations
 
             builder.HasKey(p => p.Id);
 
-            builder.Property(p => p.Subtotal)
-                   .IsRequired()
-                   .HasColumnType("decimal(10,2)");
+            builder.OwnsOne(p => p.Subtotal, m =>
+            {
+                m.Property(p => p.Valor)
+                 .HasColumnName("Subtotal")
+                 .HasColumnType("decimal(10,2)");
+            });
 
-            builder.Property(p => p.Desconto)
-                   .IsRequired()
-                   .HasColumnType("decimal(10,2)");
+            builder.OwnsOne(p => p.Desconto, m =>
+            {
+                m.Property(p => p.Valor)
+                 .HasColumnName("Desconto")
+                 .HasColumnType("decimal(10,2)");
+            });
 
-            builder.Property(p => p.Total)
-                   .IsRequired()
-                   .HasColumnType("decimal(10,2)");
+            builder.OwnsOne(p => p.Total, m =>
+            {
+                m.Property(p => p.Valor)
+                 .HasColumnName("Total")
+                 .HasColumnType("decimal(10,2)");
+            });
+
+            builder.Navigation(p => p.Subtotal).IsRequired();
+            builder.Navigation(p => p.Desconto).IsRequired();
+            builder.Navigation(p => p.Total).IsRequired();
 
             builder.HasMany(p => p.Itens)
                    .WithOne()
