@@ -1,6 +1,7 @@
 ﻿using GoodBurguer.GoodBurguer.Domain.Abstractions;
 using GoodBurguer.GoodBurguer.Domain.Enums;
 using GoodBurguer.GoodBurguer.Domain.Exceptions;
+using GoodBurguer.GoodBurguer.Domain.ValueObjects;
 
 namespace GoodBurguer.GoodBurguer.Domain.Entities
 {
@@ -14,9 +15,9 @@ namespace GoodBurguer.GoodBurguer.Domain.Entities
 
         public IReadOnlyCollection<ItemPedido> Itens => _itens;
 
-        public decimal Subtotal { get; private set; }
-        public decimal Desconto { get; private set; }
-        public decimal Total { get; private set; }
+        public Dinheiro Subtotal { get; private set; } = Dinheiro.Zero;
+        public Dinheiro Desconto { get; private set; } = Dinheiro.Zero;
+        public Dinheiro Total { get; private set; } = Dinheiro.Zero;
 
         public Pedido(IEnumerable<ItemPedido> itens)
         {
@@ -24,7 +25,7 @@ namespace GoodBurguer.GoodBurguer.Domain.Entities
 
             foreach (var item in itens)
             {
-                _itens.Add(item);
+                AdicionarItem(item);
             }
         }
 
@@ -43,14 +44,24 @@ namespace GoodBurguer.GoodBurguer.Domain.Entities
                 throw new DomainException("Pedido não pode conter mais de um acompanhamento");
         }
 
+        private void AdicionarItem(ItemPedido item)
+        {
+            if (item == null)
+                throw new DomainException("Item inválido");
+
+            _itens.Add(item);
+        }
+
         private int ContarItensPorTipo(TipoItem tipo, IEnumerable<ItemPedido> itens)
         {
             return itens.Count(i => i.Tipo == tipo);
         }
 
-        public void CalcularTotais(decimal desconto)
+        public void CalcularTotais(Dinheiro desconto)
         {
-            Subtotal = _itens.Sum(i => i.Preco);
+            var subtotal = new Dinheiro(_itens.Sum(i => i.Preco));
+
+            Subtotal = subtotal;
             Desconto = desconto;
             Total = Subtotal - Desconto;
         }

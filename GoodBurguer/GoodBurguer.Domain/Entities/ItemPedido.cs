@@ -15,15 +15,14 @@ namespace GoodBurguer.GoodBurguer.Domain.Entities
         public decimal Preco { get; private set; }
         public TipoItem Tipo { get; private set; }
 
-        public ItemPedido(Guid pedidoId, string nome, decimal preco, TipoItem tipo)
+        public ItemPedido( string nome, decimal preco, TipoItem tipo)
         {
             if (string.IsNullOrWhiteSpace(nome))
                 throw new DomainException("Nome do item inválido");
 
             if (preco <= 0)
                 throw new DomainException("Preço do item inválido");
-
-            PedidoId = pedidoId;
+           
             Nome = nome;
             Preco = preco;
             Tipo = tipo;
