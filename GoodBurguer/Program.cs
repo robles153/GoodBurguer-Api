@@ -1,4 +1,5 @@
 using GoodBurguer.GoodBurguer.API.Configurations;
+using GoodBurguer.GoodBurguer.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,9 +10,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Infra
 builder.Services.AddInfrastructure(builder.Configuration);
 
+//Application
+builder.Services.AddApplication();
+
 var app = builder.Build();
+
+app.UseErrorHandling();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
