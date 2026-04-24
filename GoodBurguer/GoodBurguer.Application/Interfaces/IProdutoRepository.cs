@@ -6,7 +6,7 @@ namespace GoodBurguer.GoodBurguer.Application.Interfaces
     {
         Task<Produto?> ObterPorIdAsync(Guid id);
         Task<IEnumerable<Produto>> ListarAsync();
-
+        Task<IEnumerable<Produto>> ObterPorIdsAsync(IEnumerable<Guid> ids);
         Task AdicionarAsync(Produto produto);
         void Atualizar(Produto produto);
     }

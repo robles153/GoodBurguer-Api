@@ -36,5 +36,12 @@ namespace GoodBurguer.GoodBurguer.Infrastructure.Data.Repositories
         {
             _context.Produtos.Update(produto);
         }
+
+        public async Task<IEnumerable<Produto>> ObterPorIdsAsync(IEnumerable<Guid> ids)
+        {
+            return await _context.Produtos
+                .Where(p => ids.Contains(p.Id) && p.Ativo)
+                .ToListAsync();
+        }
     }
 }
