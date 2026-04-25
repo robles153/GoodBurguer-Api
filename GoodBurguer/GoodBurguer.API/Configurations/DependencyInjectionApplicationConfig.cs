@@ -1,4 +1,4 @@
-﻿using GoodBurguer.GoodBurguer.Application.Pedidos.CriarPedido;
+﻿using System.Reflection;
 using GoodBurguer.GoodBurguer.Domain.Strategies;
 
 namespace GoodBurguer.GoodBurguer.API.Configurations
@@ -7,8 +7,9 @@ namespace GoodBurguer.GoodBurguer.API.Configurations
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            // Service
-            services.AddScoped<CriarPedidoService>();
+            // MediatR
+            services.AddMediatR(cfg =>
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
             // Strategies 
             services.AddScoped<IDescontoStrategy, DescontoComboCompleto>();
