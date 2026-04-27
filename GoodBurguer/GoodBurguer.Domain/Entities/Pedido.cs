@@ -52,6 +52,18 @@ namespace GoodBurguer.GoodBurguer.Domain.Entities
             _itens.Add(item);
         }
 
+        public void AtualizarItens(IEnumerable<ItemPedido> itens)
+        {
+            Validar(itens);
+
+            _itens.Clear();
+
+            foreach (var item in itens)
+            {
+                AdicionarItem(item);
+            }
+        }
+
         private int ContarItensPorTipo(TipoItem tipo, IEnumerable<ItemPedido> itens)
         {
             return itens.Count(i => i.Tipo == tipo);
@@ -59,7 +71,7 @@ namespace GoodBurguer.GoodBurguer.Domain.Entities
 
         public void CalcularTotais(Dinheiro desconto)
         {
-            var subtotal = new Dinheiro(_itens.Sum(i => i.Preco));
+            var subtotal = new Dinheiro(_itens.Sum(i => i.Preco.Valor));
 
             Subtotal = subtotal;
             Desconto = desconto;
