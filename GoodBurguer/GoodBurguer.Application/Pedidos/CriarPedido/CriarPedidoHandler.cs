@@ -1,4 +1,5 @@
-﻿using GoodBurguer.GoodBurguer.Application.Interfaces;
+﻿using GoodBurguer.GoodBurguer.Application.DTOs.ResponseDtos.Pedido;
+using GoodBurguer.GoodBurguer.Application.Interfaces;
 using GoodBurguer.GoodBurguer.Domain.Entities;
 using GoodBurguer.GoodBurguer.Domain.Exceptions;
 using GoodBurguer.GoodBurguer.Domain.Strategies;
@@ -53,10 +54,13 @@ namespace GoodBurguer.GoodBurguer.Application.Pedidos.CriarPedido
         {
             return new CriarPedidoResponse
             {
-                PedidoId = pedido.Id,
-                Subtotal = pedido.Subtotal.Valor,
-                Desconto = pedido.Desconto.Valor,
-                Total = pedido.Total.Valor
+                Pedido = new PedidoItemDto
+                {
+                    PedidoId = pedido.Id,
+                    Subtotal = pedido.Subtotal.Valor,
+                    Desconto = pedido.Desconto.Valor,
+                    Total = pedido.Total.Valor
+                }
             };
         }
 

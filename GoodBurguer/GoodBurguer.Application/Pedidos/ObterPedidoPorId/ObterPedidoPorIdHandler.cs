@@ -1,4 +1,5 @@
-﻿using GoodBurguer.GoodBurguer.Application.Interfaces;
+﻿using GoodBurguer.GoodBurguer.Application.DTOs.ResponseDtos.Pedido;
+using GoodBurguer.GoodBurguer.Application.Interfaces;
 using GoodBurguer.GoodBurguer.Domain.Exceptions;
 using MediatR;
 
@@ -31,16 +32,19 @@ namespace GoodBurguer.GoodBurguer.Application.Pedidos.ObterPedidoPorId
 
             return new ObterPedidoPorIdResponse
             {
-                PedidoId = pedido.Id,
-                Subtotal = pedido.Subtotal.Valor,
-                Desconto = pedido.Desconto.Valor,
-                Total = pedido.Total.Valor,
-                Itens = pedido.Itens.Select(i => new ItemPedidoResponse
+                Pedido = new PedidoDetalheDto
                 {
-                    Nome = i.Nome,
-                    Preco = i.Preco,
-                    Tipo = i.Tipo.ToString()
-                }).ToList()
+                    PedidoId = pedido.Id,
+                    Subtotal = pedido.Subtotal.Valor,
+                    Desconto = pedido.Desconto.Valor,
+                    Total = pedido.Total.Valor,
+                    Itens = pedido.Itens.Select(i => new ItemPedidoDto
+                    {
+                        Nome = i.Nome,
+                        Preco = i.Preco.Valor,
+                        Tipo = i.Tipo.ToString()
+                    }).ToList()
+                }
             };
         }
     }
