@@ -41,6 +41,10 @@ namespace GoodBurguer.GoodBurguer.Infrastructure.Data.Configurations
                    .WithOne()
                    .HasForeignKey(i => i.PedidoId)
                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Metadata
+                   .FindNavigation(nameof(Pedido.Itens))!
+                   .SetPropertyAccessMode(PropertyAccessMode.Field);
         }
     }
 }

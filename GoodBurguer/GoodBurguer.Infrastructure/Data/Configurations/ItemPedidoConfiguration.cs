@@ -16,9 +16,14 @@ namespace GoodBurguer.GoodBurguer.Infrastructure.Data.Configurations
                    .IsRequired()
                    .HasMaxLength(100);
 
-            builder.Property(i => i.Preco)
-                   .IsRequired()
-                   .HasColumnType("decimal(10,2)");
+            builder.OwnsOne(i => i.Preco, m =>
+            {
+                m.Property(p => p.Valor)
+                 .HasColumnName("Preco")
+                 .HasColumnType("decimal(10,2)");
+            });
+
+            builder.Navigation(i => i.Preco).IsRequired();
 
             builder.Property(i => i.Tipo)
                    .IsRequired();
