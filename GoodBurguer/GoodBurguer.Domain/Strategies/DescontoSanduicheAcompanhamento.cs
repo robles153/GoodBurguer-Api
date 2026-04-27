@@ -16,7 +16,7 @@ namespace GoodBurguer.GoodBurguer.Domain.Strategies
 
         public decimal CalcularDesconto(Pedido pedido)
         {
-            return pedido.Itens.Sum(i => i.Preco) * 0.10m;
+            return pedido.Itens.Sum(i => i.Preco.Valor) * 0.10m;
         }
 
         private bool Tem(TipoItem tipo, IReadOnlyCollection<ItemPedido> itens)
