@@ -69,7 +69,9 @@ Regras de negócio centralizadas na camada Domain
 Aplicação do padrão Strategy para cálculo de descontos
 Uso de Repository Pattern e Unit of Work
 DTOs localizados na camada Application, evitando acoplamento com a API
+
 ⚙️ Como executar o projeto
+
 🔧 Pré-requisitos
 .NET 8 instalado
 SQL Server ou LocalDB
