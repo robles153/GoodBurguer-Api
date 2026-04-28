@@ -1,5 +1,4 @@
-🍔 GoodBurguer API
-
+GoodBurguer API
 API desenvolvida em .NET 8 para gerenciamento de pedidos e cardápio de uma hamburgueria.
 
 O projeto foi construído seguindo boas práticas de desenvolvimento backend, utilizando Clean Architecture, DDD e CQRS com MediatR.
@@ -14,7 +13,6 @@ Consultar cardápio
 Aplicação de regras de negócio
 Aplicação de descontos
 🧠 Regras de negócio
-
 Um pedido deve obrigatoriamente seguir:
 
 ✔️ Deve conter exatamente 1 sanduíche
@@ -26,19 +24,13 @@ Exemplos inválidos:
 ❌ Dois acompanhamentos
 ❌ Pedido sem sanduíche
 💸 Regras de desconto
-
 A aplicação utiliza o padrão Strategy para aplicar descontos.
 
 Cada regra de desconto é isolada, permitindo fácil manutenção e extensão.
 
 🏗️ Arquitetura
+O projeto foi estruturado seguindo Clean Architecture: GoodBurguer.API GoodBurguer.Application GoodBurguer.Domain GoodBurguer.Infrastructure
 
-O projeto foi estruturado seguindo Clean Architecture:
-
-GoodBurguer.API
-GoodBurguer.Application
-GoodBurguer.Domain
-GoodBurguer.Infrastructure
 Camadas
 API → Controllers e configuração
 Application → Handlers, Requests, Responses, DTOs
@@ -53,11 +45,9 @@ MediatR
 Swagger
 xUnit (testes unitários)
 🧪 Testes
-
 O projeto possui:
 
 ✔️ Testes unitários das regras de negócio
-
 Para executar:
 
 dotnet test
@@ -71,41 +61,31 @@ Uso de Repository Pattern e Unit of Work
 DTOs localizados na camada Application, evitando acoplamento com a API
 
 ⚙️ Como executar o projeto
-
 🔧 Pré-requisitos
 .NET 8 instalado
 SQL Server ou LocalDB
+
 🛠️ Passo a passo
 1. Clonar o repositório
 
-git clone https://github.com/robles153/GoodBurguer-Api.git
-
-cd GoodBurguer-Api
+git clone [https://github.com/seu-usuario/goodburguer.git](https://github.com/robles153/GoodBurguer-Api.git)
 
 2. Configurar a connection string
 
 No arquivo appsettings.json, atualize a connection string.
 
 3. Rodar as migrations
-
 dotnet ef database update
 
 Se necessário:
-
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 
 4. Executar a aplicação
-
-dotnet run
-
 5. Acessar Swagger
-
 https://localhost:7002/swagger
 
 👨‍💻 Autor
 
 Marcos Robles
 Desenvolvedor Backend .NET
-
-🔗 LinkedIn
