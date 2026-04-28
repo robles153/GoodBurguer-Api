@@ -1,4 +1,4 @@
-# GoodBurguer API
+#  GoodBurguer API
 
 API desenvolvida em **.NET 8** para gerenciamento de pedidos e cardápio de uma hamburgueria.
 
@@ -19,7 +19,7 @@ O projeto foi construído seguindo boas práticas de desenvolvimento backend, ut
 
 ---
 
-##  Regras de negócio
+## 🧠 Regras de negócio
 
 Um pedido deve obrigatoriamente seguir:
 
@@ -36,7 +36,7 @@ Um pedido deve obrigatoriamente seguir:
 
 ---
 
-##  Regras de desconto
+## 💸 Regras de desconto
 
 A aplicação utiliza o padrão **Strategy** para aplicar descontos.
 
@@ -47,7 +47,6 @@ Cada regra de desconto é isolada, permitindo fácil manutenção e extensão.
 ## 🏗️ Arquitetura
 
 O projeto foi estruturado seguindo **Clean Architecture**:
-
 GoodBurguer.API
 GoodBurguer.Application
 GoodBurguer.Domain
@@ -63,7 +62,7 @@ GoodBurguer.Infrastructure
 
 ---
 
-##  Tecnologias utilizadas
+## 🚀 Tecnologias utilizadas
 
 - .NET 8  
 - ASP.NET Core  
@@ -75,14 +74,18 @@ GoodBurguer.Infrastructure
 
 ---
 
-Padrões utilizados
-Clean Architecture
-Domain-Driven Design (DDD)
-Repository Pattern
-Unit of Work
-Strategy Pattern
+## 🧪 Testes
 
-Decisões de arquitetura
+O projeto possui:
+
+- ✔️ Testes unitários das regras de negócio  
+
+Para executar:
+
+```bash
+dotnet test
+
+🧠 Decisões de arquitetura
 Utilização de Clean Architecture para separação de responsabilidades
 Uso de CQRS com MediatR para desacoplamento entre camadas
 Regras de negócio centralizadas na camada Domain
@@ -90,14 +93,21 @@ Aplicação do padrão Strategy para cálculo de descontos
 Uso de Repository Pattern e Unit of Work
 DTOs localizados na camada Application, evitando acoplamento com a API
 
-Testes
+⚙️ Como executar o projeto
+🔧 Pré-requisitos
+.NET 8 instalado
+SQL Server ou LocalDB
 
-O projeto possui:
+🛠️ Passo a passo
+1. Clonar o repositório
+2. Configurar a connection string no arquivo appsettings.json.
+3. Rodar as migrations dotnet ef database update
+Se necessário: dotnet ef migrations add InitialCreate
+dotnet ef database update
+4. Executar a aplicação
+5. Acessar Swagger
 
- Testes unitários das regras de negócio
+Autor
 
- ## Como rodar
-1. Atualizar connection string
-2. Rodar migrations
-3. Executar projeto
-
+Marcos Robles
+Desenvolvedor Backend .NET
