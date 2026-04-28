@@ -100,16 +100,27 @@ SQL Server ou LocalDB
 
 🛠️ Passo a passo
 1. Clonar o repositório
-2. Configurar a connection string no arquivo appsettings.json.
-3. Rodar as migrations dotnet ef database update
-Se necessário: dotnet ef migrations add InitialCreate
+
+git clone [https://github.com/seu-usuario/goodburguer.git](https://github.com/robles153/GoodBurguer-Api.git)
+
+2. Configurar a connection string
+
+No arquivo appsettings.json, atualize a connection string.
+
+3. Rodar as migrations
 dotnet ef database update
+
+Se necessário:
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
 4. Executar a aplicação
 5. Acessar Swagger
+https://localhost:7002/swagger
 
-## Autor
+👨‍💻 Autor
 
-**Marcos Robles**  
-Desenvolvedor Backend .NET  
+Marcos Robles
+Desenvolvedor Backend .NET
 
-🔗 [LinkedIn](https://linkedin.com/in/marcos-robles-amorim)
+🔗 LinkedIn
