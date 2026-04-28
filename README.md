@@ -107,7 +107,9 @@ dotnet ef database update
 4. Executar a aplicação
 5. Acessar Swagger
 
-Autor
+## Autor
 
-Marcos Robles
-Desenvolvedor Backend .NET
+**Marcos Robles**  
+Desenvolvedor Backend .NET  
+
+🔗 [LinkedIn](https://linkedin.com/in/marcos-robles-amorim)
