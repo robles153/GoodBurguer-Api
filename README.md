@@ -1,4 +1,4 @@
-GoodBurguer API
+# GoodBurguer API
 API desenvolvida em .NET 8 para gerenciamento de pedidos e cardápio de uma hamburgueria.
 
 O projeto foi construído seguindo boas práticas de desenvolvimento backend, utilizando Clean Architecture, DDD e CQRS com MediatR.
