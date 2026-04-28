@@ -100,8 +100,7 @@ SQL Server ou LocalDB
 
 🛠️ Passo a passo
 1. Clonar o repositório
-
-git clone [https://github.com/seu-usuario/goodburguer.git](https://github.com/robles153/GoodBurguer-Api.git)
+git clone https://github.com/robles153/GoodBurguer-Api.git
 
 2. Configurar a connection string
 
@@ -123,4 +122,4 @@ https://localhost:7002/swagger
 Marcos Robles
 Desenvolvedor Backend .NET
 
-🔗 LinkedIn
+🔗 [LinkedIn](https://linkedin.com/in/marcos-robles-amorim)
