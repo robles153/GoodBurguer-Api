@@ -2,8 +2,6 @@
 
 > **Projeto desenvolvido como parte de um Desafio Técnico para a vaga de Desenvolvedor C#.**
 
-![.NET](https://shields.io)
-![SQL Server](https://shields.io)
 
 API desenvolvida para o gerenciamento de pedidos e cardápio de uma hamburgueria. O objetivo deste projeto foi demonstrar conhecimentos em arquitetura moderna, padrões de projeto e qualidade de código em um ecossistema .NET.
 
